@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EroticArtGenerator</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: monospace;
+            padding: 2em;
+        }
+        textarea, input {
+            width: 100%;
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #222;
+            border: 1px solid #555;
+            color: #eee;
+        }
+        button {
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #333;
+            color: #eee;
+            border: none;
+            width: 100%;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Erotic Art Generator</h1>
+    <p>Type your dirty-ass keywords here (keep it wild, keep it real):</p>
+    <input type="text" id="keywords" placeholder="pigtails, glass, wet skin, POV...">
+
+    <button onclick="generatePrompt()">Generate Prompt</button>
+    <textarea id="result" rows="10" readonly></textarea>
+
+    <script>
+        function generatePrompt() {
+            const input = document.getElementById('keywords').value;
+            const prompt = `1. "Into the Wet": ultra-realistic, raw nude portrait of an 18-year-old woman, standing outdoors in fog-drenched morning light, damp hair clinging to her cheeks, direct eye contact with the lens, pigtails slightly undone, soft bokeh forest in the background — she’s lightly pressing her thighs together, fingertips teasing her inner thigh, light catching glistening moisture on her skin, POV shot as if you’re the photographer. Keywords: ${input}`;
+            document.getElementById('result').value = prompt;
+        }
+    </script>
+</body>
+</html>
