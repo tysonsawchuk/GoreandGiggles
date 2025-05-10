@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tyson’s NSFW Prompt Builder – HTML-Only</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { background: #111; color: #eee; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    .container { max-width: 900px; margin: auto; }
+    header { text-align: center; background: linear-gradient(135deg, #ff3c8d, #8e44ad); padding: 30px; border-radius: 8px; }
+    header h1 { margin: 0; color: #fff; font-size: 2.5em; }
+    .connection-container { text-align: center; margin: 15px 0; }
+    .status-indicator { display: inline-block; padding: 5px 10px; border-radius: 4px; font-weight: bold; }
+    .online { background: #2ecc71; color: #000; }
+    .offline { background: #e74c3c; color: #000; }
+    .section { background: #1e1e2b; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    select, textarea, button { width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: none; font-size: 1em; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .btns button { flex: 1; min-width: 120px; padding: 10px; cursor: pointer; border-radius: 6px; border: none; color: #fff; font-weight: bold; }
+    .generate { background: #e74c3c; }
+    .copy { background: #3498db; }
+    .update { background: #9b59b6; }
+    .social { background: #27ae60; }
+    .coffee { background: #f1c40f; color: #000; }
+    textarea { background: #000; color: #0f0; font-family: monospace; resize: none; height: 100px; }
+    footer { text-align: center; margin-top: 20px; font-size: 0.8em; color: #777; }
+    a { color: #ff3c8d; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tyson’s NSFW Prompt Builder</h1>
+    </header>
+    <div class="connection-container">
+      <span id="connectionStatus" class="status-indicator offline">OFFLINE</span>
+    </div>
+
+    <div class="section">
+      <div class="grid">
+        <div><label for="eye">Eye Color</label><select id="eye"><option value=""></option></select></div>
+        <div><label for="hair">Hair Style</label><select id="hair"><option value=""></option></select></div>
+        <div><label for="body">Body Type</label><select id="body"><option value=""></option></select></div>
+        <div><label for="tits">Tits</label><select id="tits"><option value=""></option></select></div>
+        <div><label for="pose">Pose</label><select id="pose"><option value=""></option></select></div>
+        <div><label for="scene">Scene</label><select id="scene"><option value=""></option></select></div>
+        <div><label for="camera">Camera</label><select id="camera"><option value=""></option></select></div>
+        <div><label for="vibe">Vibe</label><select id="vibe"><option value=""></option></select></div>
+        <div><label for="fetish">Fetish</label><select id="fetish"><option value=""></option></select></div>
+        <div><label for="lens">Lens FX</label><select id="lens"><option value=""></option></select></div>
+      </div>
+    </div>
+
+    <div class="btns">
+      <button class="generate" onclick="smartRandomize()">Generate Prompt</button>
+      <button class="copy" onclick="copyPrompt()">Copy Prompt</button>
+      <button class="update" onclick="fetchOnlinePrompts()">Refresh Options</button>
+      <button class="social" onclick="shareTwitter()">Follow X</button>
+      <button class="social" onclick="shareBluesky()">Follow Bluesky</button>
+      <button class="coffee" onclick="openCoffee()">Buy Coffee</button>
+    </div>
+
+    <div class="section">
+      <label for="prompt">Prompt:</label>
+      <textarea id="prompt" readonly></textarea>
+    </div>
+
+    <footer>
+      Powered by <a href="https://x.com/GoreandGiggles" target="_blank">@GoreandGiggles</a> &amp; 
+      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> | 
+      <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee</a>
+    </footer>
+  </div>
+
+  <script>
+    const categories = {};
+
+    async function updateConnectionStatus() {
+      const stat = document.getElementById('connectionStatus');
+      if (navigator.onLine) {
+        stat.textContent = 'ONLINE';
+        stat.className = 'status-indicator online';
+      } else {
+        stat.textContent = 'OFFLINE';
+        stat.className = 'status-indicator offline';
+      }
+    }
+
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+
+    async function fetchOnlinePrompts() {
+      try {
+        const res = await fetch('https://your-github-username.github.io/nsfw-options.json');
+        const data = await res.json();
+        Object.assign(categories, data);
+        populate();
+        alert('Options refreshed!');
+      } catch (e) {
+        alert('Failed to refresh options.');
+      }
+    }
+
+    function populate() {
+      for (let cat in categories) {
+        const sel = document.getElementById(cat);
+        sel.innerHTML = '<option value=""></option>';
+        categories[cat].forEach(opt => sel.add(new Option(opt, opt)));
+      }
+    }
+
+    function smartRandomize() {
+      for (let cat in categories) {
+        const sel = document.getElementById(cat);
+        sel.selectedIndex = Math.floor(Math.random() * sel.options.length);
+      }
+      buildPrompt();
+    }
+
+    function buildPrompt() {
+      const out = ['(nude naked topless)', '(18yo female)'];
+      for (let cat in categories) {
+        const val = document.getElementById(cat).value;
+        if (val) out.push(val);
+      }
+      out.push('visible pussy, ultra-detailed, cinematic NSFW, photoreal lighting');
+      document.getElementById('prompt').value = out.join(', ');
+    }
+
+    function copyPrompt() {
+      const t = document.getElementById('prompt'); t.select();
+      document.execCommand('copy'); alert('Prompt copied!');
+    }
+
+    function shareTwitter() { window.open('https://x.com/GoreandGiggles','_blank'); }
+    function shareBluesky() { window.open('https://bsky.app/profile/goreandgiggles.bsky.social','_blank'); }
+    function openCoffee() { window.open('https://www.buymeacoffee.com/goreandgiggles','_blank'); }
+
+    window.onload = async () => {
+      updateConnectionStatus();
+      await fetchOnlinePrompts();
+    };
+  </script>
+</body>
+</html>
