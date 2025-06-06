@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PromptForge HuggingFace Test</title>
+  </head>
+  <body>
+    <h1>PromptForge Test</h1>
+    <form id="promptForm">
+      <input type="text" id="userInput" placeholder="Describe something" required />
+      <button type="submit">Submit</button>
+    </form>
+    <pre id="output"></pre>
+
+    <script>
+      document.getElementById("promptForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const prompt = document.getElementById("userInput").value;
+        const response = await fetch("/.netlify/functions/hfPrompt", {
+          method: "POST",
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await response.json();
+        document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+      });
+    </script>
+  </body>
+</html>
