@@ -1,15 +1,13 @@
-const fetch = require('node-fetch');
-
-exports.handler = async function(event) {
+export async function handler(event) {
   const HF_TOKEN = process.env.HF_TOKEN;
   const body = JSON.parse(event.body || '{}');
   const userInput = body.prompt || 'Describe a cat with wings';
 
   const response = await fetch("https://api-inference.huggingface.co/models/gpt2", {
-    method: 'POST',
+    method: "POST",
     headers: {
       Authorization: `Bearer ${HF_TOKEN}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ inputs: userInput }),
   });
@@ -26,4 +24,4 @@ exports.handler = async function(event) {
     statusCode: 200,
     body: JSON.stringify({ result: data }),
   };
-};
+}
