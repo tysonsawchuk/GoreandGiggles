@@ -1,4 +1,4 @@
-exports.handler = async function (event) {
+export async function handler(event) {
   const HF_TOKEN = process.env.HF_TOKEN;
   const body = JSON.parse(event.body || '{}');
   const userInput = body.prompt || 'Describe a cat with wings';
@@ -15,7 +15,7 @@ exports.handler = async function (event) {
   if (!response.ok) {
     return {
       statusCode: response.status,
-      body: JSON.stringify({ error: 'Hugging Face request failed' }),
+      body: JSON.stringify({ error: "Hugging Face request failed" }),
     };
   }
 
@@ -24,4 +24,4 @@ exports.handler = async function (event) {
     statusCode: 200,
     body: JSON.stringify({ result: data }),
   };
-};
+}
