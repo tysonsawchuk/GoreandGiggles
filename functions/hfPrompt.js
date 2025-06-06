@@ -1,4 +1,4 @@
-export async function handler(event) {
+exports.handler = async function (event) {
   const HF_TOKEN = process.env.HF_TOKEN;
   const body = JSON.parse(event.body || '{}');
   const userInput = body.prompt || 'Describe a cat with wings';
@@ -24,4 +24,4 @@ export async function handler(event) {
     statusCode: 200,
     body: JSON.stringify({ result: data }),
   };
-}
+};
