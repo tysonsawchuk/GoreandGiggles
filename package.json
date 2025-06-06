@@ -1,6 +1,8 @@
 {
-  "type": "module",
+  "name": "promptforge-api",
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^2.6.7"
   }
 }
