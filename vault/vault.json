@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "pro_unlocked": false,
+  "prompts_saved": [],
+  "dlc": {
+    "core": true,
+    "fantasy_pack": false,
+    "sci-fi_pack": false,
+    "nsfw_boost": false
+  },
+  "updates": {
+    "last_checked": "2025-06-18T00:00:00Z",
+    "auto_update_enabled": true
+  },
+  "user_signature": "Created with PromptForge 🔥",
+  "default_watermark": "PromptForge MONSTER",
+  "installation_notes": "Do not delete this file. It will evolve as new packs or save systems are installed."
+}
