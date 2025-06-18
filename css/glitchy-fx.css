@@ -1,0 +1,17 @@
+/* 🌀 Glitch FX Layer */
+
+.glitch {
+  position: relative;
+  color: #00ffcc;
+  text-shadow: 1px 0 magenta, -1px 0 cyan;
+  animation: glitch 0.9s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  20% { text-shadow: -2px -1px lime, 2px 1px purple; }
+  40% { text-shadow: 1px 1px cyan, -1px -1px magenta; }
+  60% { text-shadow: -1px 0 red, 1px 0 blue; }
+  80% { text-shadow: 0 2px lime, 0 -2px magenta; }
+  100% { text-shadow: 2px 0 red, -2px 0 blue; }
+}
