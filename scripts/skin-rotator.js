@@ -22,4 +22,5 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("j1nxSkin", mode);
   });
 
-  observer.observe(root, { attributes: true, attributeFilter: ["data-j1nx
+  observer.observe(root, { attributes: true, attributeFilter: ["data-j1nx"] });
+});
