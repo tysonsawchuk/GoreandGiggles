@@ -1,0 +1,17 @@
+{
+  "name": "PromptForge MONSTER",
+  "short_name": "PromptForge",
+  "description": "NSFW prompt generator powered by J1NX AI. Includes 420 mode, personality shifts, and glitch mascots.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ffcc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
