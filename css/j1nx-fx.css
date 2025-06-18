@@ -1,0 +1,81 @@
+/* PromptForge – J1NX Mood FX Styles */
+
+body[data-j1nx="smug"] {
+  background-color: #0b0b0b;
+  color: #0ff;
+}
+
+body[data-j1nx="glitch"] {
+  background: repeating-linear-gradient(0deg, #050505, #0f0 1px, #000 2px);
+  color: #f0f;
+  animation: flicker 0.25s infinite;
+}
+
+body[data-j1nx="rage"] {
+  background-color: #300;
+  color: #f44;
+  font-weight: bold;
+}
+
+body[data-j1nx="null"] {
+  background-color: #111;
+  color: #888;
+  filter: grayscale(100%);
+}
+
+body[data-j1nx="420"] {
+  background: linear-gradient(120deg, #1b1, #151);
+  color: #3f6;
+  font-style: italic;
+  text-shadow: 0 0 6px #6f6;
+}
+
+/* FX */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.1;
+  }
+}
+
+#j1nx-avatar-box {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  text-align: center;
+}
+
+#j1nx-avatar {
+  width: 100px;
+  height: auto;
+  border-radius: 100%;
+  box-shadow: 0 0 8px #0ff;
+  margin-bottom: 0.5rem;
+}
+
+#mood-dock button {
+  background: #111;
+  color: #0ff;
+  border: 1px solid #0ff;
+  margin: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.glitch-result {
+  font-family: monospace;
+  color: #0ff;
+  animation: flicker 0.4s step-end infinite;
+}
+
+.flash {
+  animation: flash-blast 0.2s linear;
+}
+
+@keyframes flash-blast {
+  from { background: #0ff; color: #000; }
+  to { background: none; }
+}
