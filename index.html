@@ -5,19 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PromptForge MONSTER</title>
 
-  <!-- 🔞 NSFW Gate -->
+  <!-- 🔞 NSFW Age Check w/ Visual Lock -->
+  <style>
+    body {
+      visibility: hidden;
+      background: #000;
+    }
+  </style>
   <script>
     if (!localStorage.getItem("isOver18")) {
       const ok = confirm("🔞 This site contains NSFW content. Are you 18 or older?");
       if (ok) {
         localStorage.setItem("isOver18", "true");
+        document.body.style.visibility = "visible";
       } else {
         window.location.href = "https://google.com";
       }
+    } else {
+      document.body.style.visibility = "visible";
     }
   </script>
 
-  <!-- ✅ SEO / PWA -->
+  <!-- SEO / Metadata -->
   <meta name="description" content="PromptForge MONSTER – NSFW AI prompt generator with glitch mascots, weed mode, and rage core." />
   <meta name="keywords" content="NSFW prompt generator, J1NX AI, glitch AI, PromptForge, prompt-free tools, 420 mode, monster assistant" />
   <meta name="rating" content="adult" />
@@ -27,7 +36,7 @@
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/glitchy-fx.css" />
 
-  <!-- ✅ JS Logic -->
+  <!-- Scripts -->
   <script defer src="./scripts/main.js"></script>
   <script defer src="./scripts/backlink-loader.js"></script>
   <script defer src="./boot/boot-logic.js"></script>
@@ -38,8 +47,9 @@
   <script defer src="./scripts/offline-message.js"></script>
   <script defer src="./scripts/analytics-lite.js"></script>
   <script defer src="./scripts/skin-rotator.js"></script>
+  <script defer src="./tools/vault-saver.js"></script>
 
-  <!-- ✅ Google AdSense -->
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4963053724895140" crossorigin="anonymous"></script>
 </head>
 <body data-j1nx="smug">
@@ -59,20 +69,20 @@
     </ul>
   </nav>
 
-  <!-- 🧠 Boot output -->
+  <!-- Boot Console -->
   <div id="boot-sequence"></div>
 
-  <!-- 💾 User Tools -->
+  <!-- Pro Tools -->
   <section>
     <button id="voice-toggle">🔇 Voice OFF</button>
     <button onclick="ForgeStats.export()">📈 Copy My Stats</button>
     <button onclick="VaultSaver.export()">💾 Export Vault</button>
   </section>
 
-  <!-- 📢 Ads -->
+  <!-- Ad Zone -->
   <div class="ad-spot">[Ad Placeholder: Google or Juicy]</div>
 
-  <!-- 📍 Footer -->
+  <!-- Footer -->
   <footer>
     <p>
       <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> |
@@ -81,5 +91,6 @@
       <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">☕ Buy Me a Coffee</a>
     </p>
   </footer>
+
 </body>
 </html>
