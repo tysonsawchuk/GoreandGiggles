@@ -1,0 +1,5 @@
+# 🤖 PromptForge MONSTER – Crawl Permissions
+User-agent: *
+Allow: /
+
+Sitemap: https://tysonsawchuk.github.io/GoreandGiggles/sitemap.xml
