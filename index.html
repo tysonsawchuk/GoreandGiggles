@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PromptForge MONSTER</title>
 
-  <!-- 🔞 NSFW Age Check w/ Visual Lock -->
+  <!-- 🔞 NSFW Age Gate with DOM Safety -->
   <style>
     body {
       visibility: hidden;
@@ -13,17 +13,19 @@
     }
   </style>
   <script>
-    if (!localStorage.getItem("isOver18")) {
-      const ok = confirm("🔞 This site contains NSFW content. Are you 18 or older?");
-      if (ok) {
-        localStorage.setItem("isOver18", "true");
-        document.body.style.visibility = "visible";
+    window.addEventListener("DOMContentLoaded", () => {
+      if (!localStorage.getItem("isOver18")) {
+        const ok = confirm("🔞 This site contains NSFW content. Are you 18 or older?");
+        if (ok) {
+          localStorage.setItem("isOver18", "true");
+          document.body.style.visibility = "visible";
+        } else {
+          window.location.href = "https://google.com";
+        }
       } else {
-        window.location.href = "https://google.com";
+        document.body.style.visibility = "visible";
       }
-    } else {
-      document.body.style.visibility = "visible";
-    }
+    });
   </script>
 
   <!-- SEO / Metadata -->
