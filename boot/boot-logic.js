@@ -1,71 +1,63 @@
-// PromptForge MONSTER – Boot Console + Terminal Login
-
-document.addEventListener("DOMContentLoaded", () => {
-  const boot = document.getElementById("boot-sequence");
-  if (!boot) return;
-
+// Prevent boot from replaying
+if (localStorage.getItem("booted") === "true") {
+  document.body.style.visibility = "visible";
+  document.getElementById("site-lock").style.display = "none";
+  document.getElementById("boot-sequence").style.display = "none";
+} else {
+  // Animate fake boot sequence
   const lines = [
-    "[ OK ] System check: AI core online",
-    "[ OK ] Injecting terminal boot sequence...",
-    "[ SYS ] Glitch avatar loaded: J1NX-420-SMUG",
-    "[ I/O ] Prompt socket status: STANDBY",
-    "[ *** ] NSFW core authorized – masking metadata",
-    "[ LOAD ] Backdoor unlock: VAULT READY",
-    "[ DONE ] Launching interface...",
-    "",
-    ">> Awaiting authorization command..."
+    ">>> Booting MONSTER AI...",
+    ">>> Injecting J1NX personality module...",
+    ">>> Mood shards loading ⚡",
+    ">>> Terminal handshake initialized...",
+    ">>> Awaiting user passphrase [type: J1NX]",
   ];
 
+  const bootContainer = document.getElementById("boot-sequence");
   let i = 0;
-  const delay = 750;
 
-  const writeLine = () => {
-    if (i >= lines.length) {
-      showLoginPrompt();
-      return;
-    }
-    const p = document.createElement("p");
-    p.textContent = lines[i++];
-    boot.appendChild(p);
-    setTimeout(writeLine, delay);
-  };
-
-  const showLoginPrompt = () => {
-    const inputLine = document.createElement("div");
-    inputLine.innerHTML = `<span style="color:#0f0">J1NX ></span> <input id="auth-code" type="text" placeholder="ENTER COMMAND" style="background:black; border:none; color:#0f0; font-family:monospace; font-size:1rem;" autofocus />`;
-    boot.appendChild(inputLine);
-
-    const input = inputLine.querySelector("#auth-code");
-    input.focus();
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        if (input.value.trim().toUpperCase() === "J1NX") {
-          unlockSite();
+  function typeNext() {
+    if (i < lines.length) {
+      const p = document.createElement("p");
+      p.classList.add("boot-line");
+      bootContainer.appendChild(p);
+      let j = 0;
+      function typeChar() {
+        if (j < lines[i].length) {
+          p.textContent += lines[i][j];
+          j++;
+          setTimeout(typeChar, 30);
         } else {
-          input.value = "";
-          input.placeholder = "ACCESS DENIED";
+          i++;
+          setTimeout(typeNext, 300);
         }
       }
-    });
-  };
-
-  const unlockSite = () => {
-    const overlay = document.getElementById("site-lock");
-    if (overlay) overlay.remove();
-
-    // Optional: move age check inside here
-    if (!localStorage.getItem("isOver18")) {
-      const ok = confirm("🔞 NSFW content. Are you 18 or older?");
-      if (ok) {
-        localStorage.setItem("isOver18", "true");
-        document.body.style.visibility = "visible";
-      } else {
-        window.location.href = "https://google.com";
-      }
+      typeChar();
     } else {
-      document.body.style.visibility = "visible";
-    }
-  };
+      // Show terminal input
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = ">>> Type J1NX to unlock";
+      input.id = "terminal-unlock";
+      input.classList.add("terminal-input");
+      bootContainer.appendChild(input);
+      input.focus();
 
-  writeLine();
-});
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && input.value.trim().toUpperCase() === "J1NX") {
+          unlockSite();
+        }
+      });
+    }
+  }
+
+  typeNext();
+}
+
+// Unlocks the full site after boot
+function unlockSite() {
+  localStorage.setItem("booted", "true");
+  document.getElementById("site-lock").style.display = "none";
+  document.getElementById("boot-sequence").style.display = "none";
+  document.body.style.visibility = "visible";
+}
