@@ -1,36 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
   const terminal = document.getElementById("j1nx-terminal");
-  if (!terminal) return;
+  const output = document.getElementById("output");
+  const avatarBox = document.getElementById("j1nx-avatar-box");
 
-  const messages = [
-    "[ J1NX AI CORE ONLINE ]",
-    "[ 🧠 Injecting Chaos Routine ]",
-    "[ 🔒 NSFW Blocker: Bypassed ✅ ]",
-    "[ 👁 Eye contact locked ]",
-    "[ 📦 Vault integrity: 98% ]",
-    "[ ☠️ Prompts leaked: 420 ]",
-    "[ SYSTEM IDLE — READY FOR CORRUPTION ]"
+  // Already booted?
+  if (localStorage.getItem("booted") === "true") {
+    terminal.style.display = "block";
+    avatarBox.style.display = "block";
+    return;
+  }
+
+  // Start animation
+  const lines = [
+    ">>> Booting PROMPTFORGE CORE...",
+    ">>> Injecting J1NX personality layer...",
+    ">>> Loading forbidden NSFW modules...",
+    ">>> Scanning dark prompt cache...",
+    ">>> Sync complete. Terminal unlocked.",
+    ">>> Type help to begin."
   ];
 
   let i = 0;
 
-  const loop = () => {
-    const p = document.createElement("p");
-    p.classList.add("line");
-    p.textContent = "> " + messages[i % messages.length];
-    terminal.appendChild(p);
-    i++;
-
-    // Limit to last 6 entries
-    while (terminal.children.length > 6) {
-      terminal.removeChild(terminal.firstChild);
+  function writeLine() {
+    if (i >= lines.length) {
+      terminal.style.display = "block";
+      avatarBox.style.display = "block";
+      localStorage.setItem("booted", "true");
+      return;
     }
 
-    setTimeout(loop, 5000);
-  };
+    const line = document.createElement("p");
+    line.className = "line";
+    line.textContent = lines[i++];
+    output.appendChild(line);
 
-  // Wait until boot is done
-  if (localStorage.getItem("booted") === "true") {
-    setTimeout(loop, 3000);
+    setTimeout(writeLine, 800);
   }
+
+  terminal.style.display = "none";
+  avatarBox.style.display = "none";
+  writeLine();
 });
