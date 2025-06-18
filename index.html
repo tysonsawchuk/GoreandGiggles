@@ -1,77 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PromptForge MONSTER - J1NX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptForge | J1NX Core</title>
+  <meta name="description" content="PromptForge Monster Engine: NSFW AI Prompt Generator with interactive mascot J1NX and full skin/hacker modes.">
+  <meta name="keywords" content="NSFW prompt builder, AI prompt generator, monster AI, J1NX, skin modes, PromptForge">
 
-  <!-- Meta SEO -->
-  <meta name="description" content="J1NX is your glitch-core prompt-building AI mascot. Create NSFW art, switch skins, launch vaults. No login. No filters.">
-  <meta name="keywords" content="PromptForge, J1NX, NSFW AI generator, prompt tool, glitch avatar, adult AI art, 420 mode, vaults, skins, lore, terminal AI">
-  <link rel="icon" href="/assets/fav/favicon.png" type="image/png" />
-
-  <!-- Google Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4963053724895140" crossorigin="anonymous"></script>
-
-  <!-- Styles + Scripts -->
   <link rel="stylesheet" href="/css/styles.css" />
-  <script defer src="/boot/boot-logic.js"></script>
-  <script defer src="/scripts/keyboard-cheats.js"></script>
-  <script defer src="/scripts/voice-toggle.js"></script>
-  <script defer src="/scripts/backlink-loader.js"></script>
+  <link rel="stylesheet" href="/css/j1nx-fx.css" />
+  <link rel="icon" href="/assets/favicon.ico" />
 </head>
+<body data-j1nx="glitch">
 
-<body data-j1nx="smug" style="visibility:hidden">
-  <!-- Boot Overlay -->
-  <div id="site-lock" style="position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:9999;"></div>
-  <section id="boot-sequence" class="bootline"></section>
+  <!-- Terminal Display -->
+  <div id="j1nx-terminal" class="terminal-box"></div>
 
-  <!-- J1NX Avatar -->
+  <!-- Avatar Dock -->
   <div id="j1nx-avatar-box">
-    <img src="/assets/j1nx-placeholder.gif" id="j1nx-avatar" />
+    <img src="/assets/j1nx-avatar.png" id="j1nx-avatar" alt="J1NX" />
     <div id="mood-dock">
       <button onclick="setMood('smug')">😏</button>
-      <button onclick="setMood('glitch')">⚡</button>
+      <button onclick="setMood('glitch')">💀</button>
       <button onclick="setMood('rage')">💢</button>
-      <button onclick="setMood('null')">👻</button>
+      <button onclick="setMood('null')">🕳️</button>
       <button onclick="setMood('420')">🍃</button>
     </div>
   </div>
 
-  <!-- Prompt Workspace -->
-  <main id="prompt-builder">
-    <h1 class="glitch-title">PromptForge: J1NX Interface</h1>
-    <textarea id="prompt-input" placeholder="Type your dirty, wild, or chaotic prompt here..."></textarea>
-    <div class="button-row">
-      <button id="generate-prompt">💥 Forge Prompt</button>
-      <button id="voice-toggle">🔇 Voice OFF</button>
-      <button id="copy-stats">📈 Copy Stats</button>
-      <button id="export-vault">💾 Export Vault</button>
-    </div>
-    <div id="output"></div>
-  </main>
+  <!-- Output Area -->
+  <div id="output" class="output-box"></div>
 
-  <!-- Navigation Grid -->
-  <nav id="j1nx-nav">
-    <a href="/vault/vault.html">🔐 Vault</a>
-    <a href="/lore/bootlogs.html">📜 Lore</a>
-    <a href="/skins/index.html">🎭 Skins</a>
-    <a href="/tools/index.html">🛠 Tools</a>
-    <a href="/playground/index.html">🎮 Playground</a>
-  </nav>
+  <!-- Action Buttons -->
+  <div class="button-row">
+    <button id="copy-stats">📈 Copy Stats</button>
+    <button id="export-vault">💾 Export Vault</button>
+    <button id="voice-toggle">🔇 Voice OFF</button>
+  </div>
 
-  <!-- Terminal Fake Panel -->
-  <section id="j1nx-terminal">
-    <p class="line">Initializing terminal interface...</p>
-    <p class="line blink">_</p>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer Links -->
   <footer>
-    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a>
-    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter/X</a>
-    <a href="https://www.facebook.com/groups/393971833395749" target="_blank">Facebook</a>
-    <a href="https://buymeacoffee.com/goreandgiggles" target="_blank">☕ Buy Me A Coffee</a>
+    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> |
+    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> |
+    <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
   </footer>
+
+  <!-- Scripts -->
+  <script defer src="/scripts/main.js"></script>
+  <script defer src="/scripts/clipboard-vault.js"></script>
+  <script defer src="/scripts/voice-toggle.js"></script>
+  <script defer src="/scripts/backlink-loader.js"></script>
+  <script defer src="/scripts/skin-rotator.js"></script>
+  <script defer src="/scripts/terminal-anim.js"></script>
+  <script defer src="/scripts/terminal-shell.js"></script>
 </body>
 </html>
