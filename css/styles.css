@@ -1,96 +1,103 @@
-/* 🌑 PromptForge MONSTER Styles – v1 */
+/* ================================
+   PromptForge MONSTER: Base Styles
+   ================================ */
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #0b0b0b;
-  color: #eee;
-  line-height: 1.5;
-}
-
-h1, h2, h3 {
+  background: #000;
+  font-family: 'Courier New', monospace;
   color: #00ffcc;
-  text-shadow: 0 0 5px #00ffcc;
-  margin: 0.5em 0;
+  font-size: 16px;
+  visibility: visible;
+  overflow-x: hidden;
 }
 
-p {
-  margin: 0.5em 0;
-  font-size: 1rem;
-}
-
-header, nav, footer {
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid #222;
+h1.glitch {
+  font-size: 2.5rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
+  animation: flicker 1.5s infinite alternate;
+  margin-top: 2rem;
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  text-align: center;
+  margin: 2rem 0;
 }
-
-nav ul li a {
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+nav a {
+  color: #ff00ff;
   text-decoration: none;
-  color: #fff;
-  padding: 6px 12px;
-  background-color: #1a1a1a;
-  border: 1px solid #00ffcc;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1px dashed #ff00ff;
+}
+nav a:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
 
-nav ul li a:hover {
-  background-color: #00ffcc;
-  color: #000;
-  box-shadow: 0 0 8px #00ffcc;
+section {
+  text-align: center;
+  margin: 2rem auto;
 }
 
-#ad-space, .ad-spot {
+button {
+  font-size: 1rem;
   background: #111;
-  color: #888;
-  padding: 1em;
-  text-align: center;
-  border: 1px dashed #333;
-  margin: 1em 0;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #0ff;
 }
-
-.signature-box {
-  font-style: italic;
-  text-align: center;
-  color: #ff69b4;
-  font-size: 14px;
+button:hover {
+  background: #00ffcc;
+  color: #000;
 }
 
 footer {
-  margin-top: 2em;
   text-align: center;
-  border-top: 1px solid #222;
-  font-size: 0.9em;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
 }
 
 footer a {
-  color: #00ffcc;
-  margin: 0 8px;
+  color: #999;
   text-decoration: none;
+  margin: 0 0.5rem;
 }
-
 footer a:hover {
-  text-decoration: underline;
+  color: #fff;
 }
 
-#boot-sequence {
-  font-size: 0.9em;
-  padding: 1em;
-  margin: 1em;
-  background: #0f0f0f;
-  border: 1px solid #222;
-  max-height: 300px;
-  overflow-y: auto;
-  box-shadow: inset 0 0 10px #00ffcc44;
+.ad-spot {
+  background: #111;
+  color: #888;
+  text-align: center;
+  padding: 1rem;
+  border: 1px dashed #666;
+  margin: 2rem auto;
+  max-width: 400px;
+  font-size: 0.85rem;
+}
+
+/* Glitch Animation */
+@keyframes flicker {
+  from {
+    text-shadow: 0 0 3px #0ff;
+  }
+  to {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #00f;
+  }
 }
