@@ -1,32 +1,25 @@
-// 🎮 PromptForge Hidden Keyboard Cheats
-
+// PromptForge MONSTER – Keyboard Shortcut Controls
 document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.key === "j") {
-    alert("🌀 Glitch Mode Activated!");
-    document.body.dataset.j1nx = "glitch";
-    location.reload();
-  }
-
-  if (e.ctrlKey && e.key === "4") {
-    alert("🍃 420 Mode Toggled");
-    document.body.dataset.j1nx = "420";
-    location.reload();
-  }
-
-  if (e.ctrlKey && e.key === "x") {
-    alert("❌ Null Mode Online");
-    document.body.dataset.j1nx = "null";
-    location.reload();
-  }
-
   if (e.ctrlKey && e.key === "r") {
-    alert("🔥 Rage Mode Enabled");
-    document.body.dataset.j1nx = "rage";
-    location.reload();
+    // Force hard refresh
+    location.reload(true);
   }
 
-  if (e.ctrlKey && e.key === "p") {
-    alert("🔓 Pro Tools Unlocked (TEMP)");
-    localStorage.setItem("pro_unlocked", "true");
+  if (e.ctrlKey && e.key === "s") {
+    // Quick skin rotate
+    const skins = ["smug", "glitch", "rage", "null", "420"];
+    const next = skins[Math.floor(Math.random() * skins.length)];
+    document.body.setAttribute("data-j1nx", next);
+    console.log("🎭 Skin changed to:", next);
+  }
+
+  if (e.key === "Escape") {
+    // Panic wipe screen
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;'>💥 Session Wiped</h1>";
+    localStorage.clear();
+  }
+
+  if (e.key === "`") {
+    alert("👁 PromptForge Dev Console\nUse Ctrl+S to rotate skins\nUse Ctrl+R to reload\nESC to wipe");
   }
 });
