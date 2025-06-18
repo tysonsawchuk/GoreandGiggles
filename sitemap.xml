@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 🌐 Base -->
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/index.html</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- 👁 Alt Page -->
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/index_glitchy.html</loc>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- 🔥 Personalities -->
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/j1nx-smug.html</loc>
+  </url>
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/j1nx-glitch.html</loc>
+  </url>
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/j1nx-null.html</loc>
+  </url>
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/j1nx-rage.html</loc>
+  </url>
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/j1nx-420.html</loc>
+  </url>
+  <url>
+    <loc>https://tysonsawchuk.github.io/GoreandGiggles/pages/help.html</loc>
+  </url>
+</urlset>
