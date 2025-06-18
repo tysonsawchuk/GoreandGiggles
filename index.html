@@ -1,99 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PromptForge MONSTER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PromptForge MONSTER - J1NX</title>
 
-  <!-- 🔞 NSFW Age Gate (DOM-safe) -->
-  <style>
-    body {
-      visibility: hidden;
-      background-color: #000;
-      color: #0f0;
-    }
-  </style>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      if (!localStorage.getItem("isOver18")) {
-        const ok = confirm("🔞 NSFW content ahead. Are you 18+?");
-        if (ok) {
-          localStorage.setItem("isOver18", "true");
-          document.body.style.visibility = "visible";
-        } else {
-          window.location.href = "https://google.com";
-        }
-      } else {
-        document.body.style.visibility = "visible";
-      }
-    });
-  </script>
-
-  <!-- SEO -->
-  <meta name="description" content="PromptForge MONSTER – NSFW AI prompt generator with glitch mascots, weed mode, and rage core." />
-  <meta name="keywords" content="NSFW prompt generator, J1NX AI, glitch AI, PromptForge, prompt-free tools, 420 mode, monster assistant" />
-  <meta name="rating" content="adult" />
-  <meta name="theme-color" content="#00ffcc" />
-
-  <!-- AdSense -->
+  <!-- Meta SEO -->
+  <meta name="description" content="J1NX is your glitch-core prompt-building AI mascot. Create NSFW art, switch skins, launch vaults. No login. No filters.">
+  <meta name="keywords" content="PromptForge, J1NX, NSFW AI generator, prompt tool, glitch avatar, adult AI art, 420 mode, vaults, skins, lore, terminal AI">
+  <link rel="icon" href="./assets/fav/favicon.png" type="image/png" />
+  
+  <!-- Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4963053724895140" crossorigin="anonymous"></script>
 
-  <!-- Stylesheets -->
+  <!-- Styles + Scripts -->
   <link rel="stylesheet" href="./css/styles.css" />
-  <link rel="stylesheet" href="./css/glitchy-fx.css" />
-
-  <!-- Scripts -->
-  <script defer src="./scripts/main.js"></script>
-  <script defer src="./scripts/backlink-loader.js"></script>
   <script defer src="./boot/boot-logic.js"></script>
   <script defer src="./scripts/keyboard-cheats.js"></script>
-  <script defer src="./scripts/fx-mode-loader.js"></script>
-  <script defer src="./scripts/easter-eggs.js"></script>
   <script defer src="./scripts/voice-toggle.js"></script>
-  <script defer src="./scripts/offline-message.js"></script>
-  <script defer src="./scripts/analytics-lite.js"></script>
-  <script defer src="./scripts/skin-rotator.js"></script>
-  <script defer src="./tools/vault-saver.js"></script>
+  <script defer src="./scripts/backlink-loader.js"></script>
 </head>
 
-<body data-j1nx="smug">
-  <header>
-    <h1 class="glitch">🧠 PromptForge <span style="color:#00ffcc">MONSTER</span></h1>
-    <p>Welcome, operator. J1NX is online. Your chaos assistant awaits.</p>
-  </header>
+<body data-j1nx="smug" style="visibility:hidden">
+  <!-- Fake Boot Overlay -->
+  <div id="site-lock" style="position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:9999;"></div>
+  <section id="boot-sequence" class="bootline"></section>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <ul>
-      <li><a href="./pages/j1nx-smug.html">😏 Smug Mode</a></li>
-      <li><a href="./pages/j1nx-glitch.html">🌀 Glitch Mode</a></li>
-      <li><a href="./pages/j1nx-null.html">👁 Null Mode</a></li>
-      <li><a href="./pages/j1nx-rage.html">🔥 Rage Mode</a></li>
-      <li><a href="./pages/j1nx-420.html">🍃 420 Mode</a></li>
-    </ul>
+  <!-- J1NX Avatar & Mood Dock -->
+  <div id="j1nx-avatar-box">
+    <img src="./assets/j1nx-placeholder.gif" id="j1nx-avatar" />
+    <div id="mood-dock">
+      <button onclick="setMood('smug')">😏</button>
+      <button onclick="setMood('glitch')">⚡</button>
+      <button onclick="setMood('rage')">💢</button>
+      <button onclick="setMood('null')">👻</button>
+      <button onclick="setMood('420')">🍃</button>
+    </div>
+  </div>
+
+  <!-- Prompt Workspace -->
+  <main id="prompt-builder">
+    <h1 class="glitch-title">PromptForge: J1NX Interface</h1>
+    <textarea id="prompt-input" placeholder="Type your dirty, wild, or chaotic prompt here..."></textarea>
+    <div class="button-row">
+      <button id="generate-prompt">💥 Forge Prompt</button>
+      <button id="voice-toggle">🔇 Voice OFF</button>
+      <button id="copy-stats">📈 Copy Stats</button>
+      <button id="export-vault">💾 Export Vault</button>
+    </div>
+    <div id="output"></div>
+  </main>
+
+  <!-- Nav Grid -->
+  <nav id="j1nx-nav">
+    <a href="./vault/vault.html">🔐 Vault</a>
+    <a href="./lore/bootlogs.html">📜 Lore</a>
+    <a href="./skins/index.html">🎭 Skins</a>
+    <a href="./tools/index.html">🛠 Tools</a>
+    <a href="./playground/index.html">🎮 Playground</a>
   </nav>
 
-  <!-- CONSOLE BOOT DISPLAY -->
-  <div id="boot-sequence"></div>
-
-  <!-- TOOLS -->
-  <section>
-    <button id="voice-toggle">🔇 Voice OFF</button>
-    <button onclick="ForgeStats.export()">📈 Copy Stats</button>
-    <button onclick="VaultSaver.export()">💾 Export Vault</button>
+  <!-- Terminal Fake Panel -->
+  <section id="j1nx-terminal">
+    <p class="line">Initializing terminal interface...</p>
+    <p class="line blink">_</p>
   </section>
 
-  <!-- AD SPOT -->
-  <div class="ad-spot">[Ad Placeholder: Google or Juicy]</div>
-
-  <!-- FOOTER -->
+  <!-- Footer Socials -->
   <footer>
-    <p>
-      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> |
-      <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> |
-      <a href="https://www.facebook.com/groups/393971833395749" target="_blank">Facebook</a> |
-      <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">☕ Buy Me a Coffee</a>
-    </p>
+    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a>
+    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter/X</a>
+    <a href="https://www.facebook.com/groups/393971833395749" target="_blank">Facebook</a>
+    <a href="https://buymeacoffee.com/goreandgiggles" target="_blank">☕ Buy Me A Coffee</a>
   </footer>
 </body>
 </html>
