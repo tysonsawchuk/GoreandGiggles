@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PromptForge | J1NX Core</title>
-  <meta name="description" content="PromptForge Monster Engine: NSFW AI Prompt Generator with interactive mascot J1NX and full skin/hacker modes.">
-  <meta name="keywords" content="NSFW prompt builder, AI prompt generator, monster AI, J1NX, skin modes, PromptForge">
+  <title>PromptForge | J1NX Terminal</title>
+  <meta name="description" content="PromptForge MONSTER: NSFW prompt creator powered by J1NX, an animated terminal guide for forbidden AI creativity.">
+  <meta name="keywords" content="NSFW prompt generator, AI art, J1NX, glitchy AI, forbidden terminal, prompt builder, PromptForge">
 
+  <link rel="icon" href="/assets/favicon.ico" />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/j1nx-fx.css" />
-  <link rel="icon" href="/assets/favicon.ico" />
+
+  <!-- AdSense + Juicy placeholder -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4963053724895140" crossorigin="anonymous"></script>
 </head>
 <body data-j1nx="glitch">
-
-  <!-- Terminal Display -->
-  <div id="j1nx-terminal" class="terminal-box"></div>
-
-  <!-- Avatar Dock -->
+  
+  <!-- J1NX Avatar -->
   <div id="j1nx-avatar-box">
-    <img src="/assets/j1nx-avatar.png" id="j1nx-avatar" alt="J1NX" />
+    <img src="/assets/j1nx-avatar.png" id="j1nx-avatar" alt="J1NX">
     <div id="mood-dock">
       <button onclick="setMood('smug')">😏</button>
       <button onclick="setMood('glitch')">💀</button>
@@ -28,17 +28,18 @@
     </div>
   </div>
 
-  <!-- Output Area -->
+  <!-- Terminal Boot Area -->
   <div id="output" class="output-box"></div>
+  <div id="j1nx-terminal" class="terminal-box"></div>
 
-  <!-- Action Buttons -->
+  <!-- Buttons -->
   <div class="button-row">
     <button id="copy-stats">📈 Copy Stats</button>
     <button id="export-vault">💾 Export Vault</button>
     <button id="voice-toggle">🔇 Voice OFF</button>
   </div>
 
-  <!-- Footer Links -->
+  <!-- Links -->
   <footer>
     <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> |
     <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> |
