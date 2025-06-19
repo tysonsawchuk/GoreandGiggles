@@ -2,21 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PromptForge - Smiley Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    body {
-      background: black;
-      color: yellow;
-      font-size: 5rem;
-      text-align: center;
-      margin-top: 20%;
-      font-family: monospace;
-    }
-  </style>
+  <title>PromptForge</title>
+  <meta name="description" content="Welcome to PromptForge — a chaotic AI prompt tool with NSFW modules and strange little mascots.">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="scripts/main.js"></script>
 </head>
-<body>
-  😀
-  <p>PromptForge Root Test</p>
+<body class="console-screen">
+  <pre id="boot-sequence">
+>>> Booting PROMPTFORGE CORE...
+>>> Injecting J1NX personality layer...
+>>> Loading forbidden NSFW modules...
+>>> Scanning dark prompt cache...
+>>> Sync complete. Terminal unlocked.
+Type <span class="glow">help</span> to begin.
+  </pre>
+
+  <div class="button-tray">
+    <button onclick="exportVault()">Export Vault</button>
+    <button onclick="copyStats()">Copy Stats</button>
+    <button id="voiceToggle" onclick="toggleVoice()">Voice OFF</button>
+  </div>
+
+  <footer>
+    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> —
+    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> —
+    <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
+  </footer>
 </body>
 </html>
