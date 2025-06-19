@@ -2,57 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PromptForge | J1NX Terminal</title>
-  <meta name="description" content="PromptForge MONSTER: NSFW prompt creator powered by J1NX, an animated terminal guide for forbidden AI creativity.">
-  <meta name="keywords" content="NSFW prompt generator, AI art, J1NX, glitchy AI, forbidden terminal, prompt builder, PromptForge">
-
-  <link rel="icon" href="/assets/favicon.ico" />
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/j1nx-fx.css" />
-
-  <!-- AdSense + Juicy placeholder -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4963053724895140" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Choose your J1NX — AI prompt tools powered by glitchcore mascots. NSFW optional.">
+  <meta name="keywords" content="prompt generator, AI muse, NSFW prompt tool, glitchcore, AI mascots">
+  <meta property="og:title" content="PromptForge — Choose Your J1NX" />
+  <meta property="og:description" content="Pick your forbidden AI muse. NSFW optional. Multiple personalities. Pure chaos." />
+  <meta property="og:image" content="https://promptforge.online/assets/ui/logo/promptforge-banner.png"/>
+  <meta property="og:url" content="https://promptforge.online" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>PromptForge — Choose Your J1NX</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #0f0;
+      text-shadow: 0 0 5px #0f0;
+    }
+    .bootline {
+      animation: blink 0.4s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .grid {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      background: #222;
+      box-shadow: 0 0 8px #0f0;
+    }
+    .card img {
+      max-width: 100%;
+      height: 160px;
+      object-fit: contain;
+    }
+    .card a {
+      text-decoration: none;
+      color: #0f0;
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+    }
+    footer a {
+      color: #777;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+  </style>
 </head>
-<body data-j1nx="glitch">
-  
-  <!-- J1NX Avatar -->
-  <div id="j1nx-avatar-box">
-    <img src="/assets/j1nx-avatar.png" id="j1nx-avatar" alt="J1NX">
-    <div id="mood-dock">
-      <button onclick="setMood('smug')">😏</button>
-      <button onclick="setMood('glitch')">💀</button>
-      <button onclick="setMood('rage')">💢</button>
-      <button onclick="setMood('null')">🕳️</button>
-      <button onclick="setMood('420')">🍃</button>
+<body>
+  <h1>>> Booting PROMPTFORGE CORE<span class="bootline">_</span></h1>
+
+  <div class="grid">
+    <div class="card">
+      <img src="./assets/j1nx/characters/j1nx_420_image1_v1.png" alt="420J1NX">
+      <a href="./j1nx-420.html">Launch 420J1NX</a>
+    </div>
+    <div class="card">
+      <img src="./assets/j1nx/characters/j1nx_rage_image1_v1.png" alt="RageJ1NX">
+      <a href="./j1nx-rage.html">Launch RageJ1NX</a>
+    </div>
+    <div class="card">
+      <img src="./assets/j1nx/characters/j1nx_glitch_image1_v1.png" alt="GlitchJ1NX">
+      <a href="./j1nx-glitch.html">Launch GlitchJ1NX</a>
+    </div>
+    <div class="card">
+      <img src="./assets/j1nx/characters/j1nx_smug_image1_v1.png" alt="SmugJ1NX">
+      <a href="./j1nx-smug.html">Launch SmugJ1NX</a>
+    </div>
+    <div class="card">
+      <img src="./assets/j1nx/characters/j1nx_null_image1_v1.png" alt="NullJ1NX">
+      <a href="./j1nx-null.html">Launch NullJ1NX</a>
     </div>
   </div>
 
-  <!-- Terminal Boot Area -->
-  <div id="output" class="output-box"></div>
-  <div id="j1nx-terminal" class="terminal-box"></div>
-
-  <!-- Buttons -->
-  <div class="button-row">
-    <button id="copy-stats">📈 Copy Stats</button>
-    <button id="export-vault">💾 Export Vault</button>
-    <button id="voice-toggle">🔇 Voice OFF</button>
-  </div>
-
-  <!-- Links -->
   <footer>
-    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> |
-    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> |
-    <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
+    <p>
+      <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a>
+      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a>
+      <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee</a>
+      <a href="./about.html">About</a>
+      <a href="./terms.html">Terms</a>
+    </p>
   </footer>
-
-  <!-- Scripts -->
-  <script defer src="/scripts/main.js"></script>
-  <script defer src="/scripts/clipboard-vault.js"></script>
-  <script defer src="/scripts/voice-toggle.js"></script>
-  <script defer src="/scripts/backlink-loader.js"></script>
-  <script defer src="/scripts/skin-rotator.js"></script>
-  <script defer src="/scripts/terminal-anim.js"></script>
-  <script defer src="/scripts/terminal-shell.js"></script>
 </body>
 </html>
