@@ -2,32 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PromptForge</title>
-  <meta name="description" content="Welcome to PromptForge — a chaotic AI prompt tool with NSFW modules and strange little mascots.">
-  <link rel="stylesheet" href="css/styles.css" />
-  <script defer src="scripts/main.js"></script>
-</head>
-<body class="console-screen">
-  <pre id="boot-sequence">
->>> Booting PROMPTFORGE CORE...
->>> Injecting J1NX personality layer...
->>> Loading forbidden NSFW modules...
->>> Scanning dark prompt cache...
->>> Sync complete. Terminal unlocked.
-Type <span class="glow">help</span> to begin.
-  </pre>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptForge - Dark NSFW AI Prompt Terminal</title>
+  <meta name="description" content="Forge wild, explicit, and creative AI prompts in this hacked NSFW terminal interface. J1NX AI unlocked.">
+  <meta name="keywords" content="NSFW prompt generator, AI art prompts, prompt tool, stable diffusion prompts, dark ai terminal">
+  <meta property="og:title" content="PromptForge Terminal" />
+  <meta property="og:description" content="NSFW Prompt Terminal - Build wild prompts using our underground hacked AI." />
+  <meta property="og:image" content="/assets/ui/og-image-dark.png" />
+  <meta property="og:url" content="https://promptforge.online" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <div class="button-tray">
-    <button onclick="exportVault()">Export Vault</button>
-    <button onclick="copyStats()">Copy Stats</button>
-    <button id="voiceToggle" onclick="toggleVoice()">Voice OFF</button>
+  <!-- ✅ MAIN CSS + FX -->
+  <link rel="stylesheet" href="/css/j1nx-fx.css" />
+
+  <!-- ✅ TERMINAL / ANIMATION LOGIC -->
+  <script defer src="/boot/boot-logic.js"></script>
+  <script defer src="/scripts/terminal-shell.js"></script>
+</head>
+
+<body class="boot-sequence">
+  <div id="terminal">
+    <div id="boot-output">
+      <p>>> Booting <span class="green">PROMPTFORGE CORE</span>...</p>
+      <p>>> Injecting <span class="glow">J1NX personality layer</span>...</p>
+      <p>>> Loading forbidden NSFW modules...</p>
+      <p>>> Scanning dark prompt cache...</p>
+      <p>>> <span class="green">Sync complete. Terminal unlocked.</span></p>
+      <p>Type <code>help</code> to begin.</p>
+    </div>
+
+    <!-- ✅ Functional Typing Input -->
+    <div class="terminal-input">
+      <span>&gt;&gt;&gt;</span> <input type="text" id="terminal-cmd" placeholder="Type command..." autofocus />
+    </div>
+
+    <!-- ✅ Command Buttons -->
+    <div class="terminal-actions">
+      <button onclick="copyStats()">Copy Stats</button>
+      <button onclick="exportVault()">Export Vault</button>
+      <button onclick="toggleVoice()">Voice OFF</button>
+    </div>
   </div>
 
+  <!-- ✅ J1NX Animated Mascot -->
+  <div id="mascot-container">
+    <img src="/assets/j1nx/characters/j1nx_glitch_image1_v1.png" alt="J1NX Mascot" id="jinx-avatar" />
+    <div id="jinx-bubble">“Welcome back, meatbag.”</div>
+  </div>
+
+  <!-- ✅ Footer + Social Links -->
   <footer>
-    <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> —
-    <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> —
-    <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
+    <div class="footer-links">
+      <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> -
+      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> -
+      <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
+    </div>
   </footer>
+
+  <!-- ✅ Hidden SEO + Landing Page Links -->
+  <div style="display: none;">
+    <a href="/pages/j1nx-420.html">420J1NX</a>
+    <a href="/pages/j1nx-null.html">NullJ1NX</a>
+    <a href="/pages/j1nx-rage.html">RageJ1NX</a>
+    <a href="/pages/j1nx-smug.html">SmugJ1NX</a>
+    <a href="/pages/j1nx-glitch.html">GlitchGoblin</a>
+  </div>
 </body>
 </html>
