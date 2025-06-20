@@ -1,56 +1,64 @@
+<!-- PromptForge Root Index - Fully Rebuilt -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="PromptForge - Forbidden NSFW prompt generator. Powered by J1NX, your AI terminal from the void." />
+  <meta property="og:title" content="PromptForge — Terminal Prompt Generator" />
+  <meta property="og:image" content="https://promptforge.online/assets/j1nx/characters/j1nx_null_image1_v1.png" />
+  <meta property="og:url" content="https://promptforge.online" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>PromptForge Terminal</title>
-  <link rel="stylesheet" href="./css/styles.css" />
-  <link rel="icon" type="image/png" href="./assets/ui/favicon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/j1nx-fx.css" />
+  <script defer src="scripts/main.js"></script>
+  <script defer src="scripts/terminal-shell.js"></script>
+  <script defer src="scripts/update-core.js"></script>
+  <script defer src="boot/boot-logic.js"></script>
 </head>
-<body class="boot-sequence">
+<body class="boot-theme">
 
-  <section class="boot-console">
-    <pre class="boot-text">
+  <div class="boot-screen">
+    <pre class="boot-lines">
 >>> Booting PROMPTFORGE CORE...
 >>> Injecting J1NX personality layer...
 >>> Loading forbidden NSFW modules...
 >>> Scanning dark prompt cache...
 >>> Sync complete. Terminal unlocked.
-Type <span class="help-highlight">help</span> to begin.
+Type <span class="glow">help</span> to begin.
     </pre>
-
-    <div class="terminal-input">
-      <span class="prompt">>>></span>
-      <input type="text" placeholder="Type command..." />
+    
+    <div class="terminal-input-box">
+      <span class="prompt-glow">>>></span>
+      <input type="text" id="terminalInput" placeholder="Type command..." />
     </div>
 
-    <div class="button-row">
-      <button>Export Vault</button>
-      <button>Watermark Tool</button>
-      <button>Signature Box</button>
-      <button>Prompt Generator</button>
+    <div class="button-bar">
+      <button onclick="copyStats()">Copy Stats</button>
+      <button onclick="exportVault()">Export Vault</button>
+      <button onclick="toggleVoice()">Voice OFF</button>
     </div>
 
-    <div class="j1nx-mascot">
-      <img src="./assets/j1nx/characters/j1nx_420baked_image1_v1.png" alt="J1NX Mascot" />
-      <blockquote>“Welcome back, meatbag.”</blockquote>
+    <div class="mascot-bubble">
+      <img src="assets/j1nx/characters/j1nx_null_image1_v1.png" alt="J1NX Mascot" width="160" />
+      <div class="speech">"Welcome back, meatbag."</div>
     </div>
 
-    <div class="hidden-links">
-      <a href="./pages/j1nx-420.html">420J1NX</a> •
-      <a href="./pages/j1nx-glitch.html">GlitchGoblin</a> •
-      <a href="./pages/j1nx-null.html">NullJ1NX</a> •
-      <a href="./pages/j1nx-smug.html">SmugLiLJ1NX</a> •
-      <a href="./pages/j1nx-rage.html">HornyJ1NX</a>
+    <div class="nav-links">
+      <a href="pages/j1nx-420.html">420J1NX</a> · 
+      <a href="pages/j1nx-glitch.html">GlitchGoblin</a> · 
+      <a href="pages/j1nx-null.html">NullJ1NX</a> · 
+      <a href="pages/j1nx-smug.html">SmugLiLJ1NX</a> · 
+      <a href="pages/j1nx-rage.html">HornyJ1NX</a>
     </div>
 
-    <footer>
-      <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> -
-      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> -
+    <div class="footer-links">
+      <a href="https://x.com/GoreandGiggles" target="_blank">Twitter</a> · 
+      <a href="https://bsky.app/profile/goreandgiggles.bsky.social" target="_blank">Bluesky</a> · 
       <a href="https://www.buymeacoffee.com/goreandgiggles" target="_blank">Buy Me a Coffee ☕</a>
-    </footer>
-  </section>
+    </div>
+  </div>
 
-  <script src="./scripts/terminal-shell.js"></script>
 </body>
 </html>
