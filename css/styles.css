@@ -1,103 +1,107 @@
-/* ================================
-   PromptForge MONSTER: Base Styles
-   ================================ */
-
-body {
+body.terminal-theme {
+  background-color: #000;
+  color: #44ff99;
+  font-family: "Courier New", Courier, monospace;
+  padding: 2rem;
   margin: 0;
-  padding: 0;
-  background: #000;
-  font-family: 'Courier New', monospace;
-  color: #00ffcc;
-  font-size: 16px;
-  visibility: visible;
   overflow-x: hidden;
 }
 
-h1.glitch {
-  font-size: 2.5rem;
-  color: #0ff;
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
-  animation: flicker 1.5s infinite alternate;
-  margin-top: 2rem;
+.boot-output {
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  color: #99ffbb;
+}
+
+.terminal-bar {
+  background-color: #000;
+  border: 2px solid #33cc66;
+  padding: 0.5rem;
+  max-width: 420px;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px #33cc66;
+}
+
+.terminal-bar .prefix {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #33cc66;
+}
+
+.terminal-bar input {
+  background-color: #000;
+  border: none;
+  color: #44ff99;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.jinx-mascot {
+  display: block;
+  margin: 2rem auto 0 auto;
+  max-width: 180px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.speech-bubble {
+  max-width: 240px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+  padding: 0.7rem;
+  border-left: 4px solid #44ff99;
+  margin: 0.5rem auto 2rem auto;
+  font-style: italic;
   text-align: center;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
+.btn-bar {
   text-align: center;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
-nav li {
-  display: inline-block;
-  margin: 0 10px;
+
+.btn-bar button {
+  margin: 0.3rem;
+  padding: 0.7rem 1.2rem;
+  background: #111;
+  border: 1px solid #44ff99;
+  color: #99ffbb;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px #33cc66;
 }
-nav a {
-  color: #ff00ff;
+
+.landing-links {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.landing-links a {
+  margin: 0.5rem;
+  color: #55ffaa;
   text-decoration: none;
   font-weight: bold;
-  border-bottom: 1px dashed #ff00ff;
-}
-nav a:hover {
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-
-section {
-  text-align: center;
-  margin: 2rem auto;
-}
-
-button {
-  font-size: 1rem;
-  background: #111;
-  color: #00ffcc;
-  border: 1px solid #00ffcc;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #0ff;
-}
-button:hover {
-  background: #00ffcc;
-  color: #000;
 }
 
 footer {
   text-align: center;
+  color: #666;
+  font-size: 0.85rem;
   margin-top: 4rem;
-  padding: 2rem;
-  border-top: 1px solid #333;
-  font-size: 0.9rem;
 }
 
 footer a {
-  color: #999;
-  text-decoration: none;
+  color: #99ffbb;
   margin: 0 0.5rem;
-}
-footer a:hover {
-  color: #fff;
+  text-decoration: none;
 }
 
-.ad-spot {
-  background: #111;
-  color: #888;
-  text-align: center;
-  padding: 1rem;
-  border: 1px dashed #666;
-  margin: 2rem auto;
-  max-width: 400px;
-  font-size: 0.85rem;
-}
-
-/* Glitch Animation */
-@keyframes flicker {
-  from {
-    text-shadow: 0 0 3px #0ff;
-  }
-  to {
-    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #00f;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
