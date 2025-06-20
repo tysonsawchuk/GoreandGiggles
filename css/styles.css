@@ -1,107 +1,61 @@
-body.terminal-theme {
+/* Boot Terminal Fixes */
+#terminal-shell {
   background-color: #000;
-  color: #44ff99;
-  font-family: "Courier New", Courier, monospace;
   padding: 2rem;
-  margin: 0;
-  overflow-x: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #00ffcc33;
+  color: #0ff;
+  font-family: 'Courier New', monospace;
+  position: relative;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 900px;
+  overflow-y: auto;
+}
+
+#terminal-shell input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #0ff;
+  color: #0ff;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
 }
 
 .boot-output {
   white-space: pre-wrap;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  color: #99ffbb;
+  margin-bottom: 1rem;
 }
 
-.terminal-bar {
-  background-color: #000;
-  border: 2px solid #33cc66;
-  padding: 0.5rem;
-  max-width: 420px;
-  margin: 1rem auto;
+/* Mascot Styling */
+#mascot-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 10px #33cc66;
-}
-
-.terminal-bar .prefix {
-  margin-right: 0.5rem;
-  font-weight: bold;
-  color: #33cc66;
-}
-
-.terminal-bar input {
-  background-color: #000;
-  border: none;
-  color: #44ff99;
-  font-family: inherit;
-  font-size: 1rem;
-  outline: none;
-  width: 100%;
-}
-
-.jinx-mascot {
-  display: block;
-  margin: 2rem auto 0 auto;
-  max-width: 180px;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.speech-bubble {
-  max-width: 240px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #ccc;
-  padding: 0.7rem;
-  border-left: 4px solid #44ff99;
-  margin: 0.5rem auto 2rem auto;
-  font-style: italic;
-  text-align: center;
-}
-
-.btn-bar {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.btn-bar button {
-  margin: 0.3rem;
-  padding: 0.7rem 1.2rem;
-  background: #111;
-  border: 1px solid #44ff99;
-  color: #99ffbb;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 8px #33cc66;
-}
-
-.landing-links {
-  text-align: center;
   margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
-.landing-links a {
-  margin: 0.5rem;
-  color: #55ffaa;
-  text-decoration: none;
-  font-weight: bold;
+#mascot {
+  max-width: 240px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
 }
 
-footer {
+#mascot-speech {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #0ff;
+  font-style: italic;
+  color: #ccc;
+  max-width: 80%;
   text-align: center;
-  color: #666;
-  font-size: 0.85rem;
-  margin-top: 4rem;
-}
-
-footer a {
-  color: #99ffbb;
-  margin: 0 0.5rem;
-  text-decoration: none;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; }
 }
